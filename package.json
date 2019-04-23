@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "PENDING"
+    "url": "https://github.com/roblopz/draft-js-styletoprops-plugin"
   },
   "license": "MIT",
   "main": "dist/index.js",

@@ -163,7 +163,7 @@ An key-value pair of the active styles for the current editor selection in the f
 
 For a given style group (as defined in styleMaps prop), this function returns if 2+ styles are active in the current selected text:
 
-```js
+```HTML
 ...
 const myStyles = {
     myFontStyles: [{
