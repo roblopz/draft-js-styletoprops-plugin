@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",    
+    "rootDir": "src",
+    "target": "es5",
+    "module": "esnext",
+    "declaration": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": ["dom", "es6", "es2016"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "typeRoots": [
+      "index.d.ts",
+      "node_modules/@types"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

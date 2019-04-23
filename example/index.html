@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DraftJS - Style-to-Props Plugin</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/draft-js/0.10.5/Draft.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <style>
+    .app-wrapper {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .app-title {
+      display: inline-block;
+      font-size: 1.5em;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+
+    .editor-wrapper {
+      border: 1px solid #d1d1d1;
+      border-radius: 4px;
+    }
+
+    .editor-toolbar {
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #d1d1d1;
+      padding: 4px 6px 2px;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
+
+    .editor-toolbar-separator {
+      cursor: default;
+      margin: 0 5px;
+    }
+
+    .editor-toolbar-btn {
+      color: darkslategrey;
+      cursor: pointer;
+      display: inline-block;
+      padding: 3px 5px;
+    }
+
+    .editor-toolbar-btn.active {
+      border: 1px #bcbcbc solid;
+      padding: 2px 4px;
+      background: #fff;
+    }
+
+    .editor-toolbar .fa-text-height {
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    .public-DraftEditor-content {
+      min-height: 150px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" />
+</body>
+
+</html>

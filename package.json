@@ -1,0 +1,42 @@
+{
+  "name": "draft-js-styletoprops-plugin",
+  "version": "1.0.0",
+  "description": "Cusotom styles to props plugin for DraftJS Plugins Editor",
+  "author": {
+    "name": "Roberto Lopez",
+    "url": "https://github.com/roblopz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "PENDING"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "draftjs",
+    "plugin",
+    "editor",
+    "react",
+    "wysiwyg"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": "^15.5.0 || ^16.0.0",
+    "react-dom": "^15.5.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "@types/draft-js": "^0.10.1",
+    "@types/react": "^15.5.0 || ^16.0.0",
+    "@types/react-dom": "^15.5.0 || ^16.0.0",
+    "draft-js": "^0.10.1",
+    "immutable": "^3.8.1",
+    "prop-types": "^15.5.0 || ^16.0.0",
+    "react": "^15.5.0 || ^16.0.0",
+    "react-dom": "^15.5.0 || ^16.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.4"
+  }
+}
