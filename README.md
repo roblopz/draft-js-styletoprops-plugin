@@ -27,13 +27,13 @@ const { StyleToProps } = styleToPropsPlugin;
 
 ```HTML
 <div className="the-toolbar">
-	<StyleToProps styleMaps={/* your custome style map, see below API section */}>
-    	{({ activeStyles, styleGroupHasClash, toggleInlineStyle }) => (
-        	{/* ... */}
-        	{/* Whatever you need to render in here */}
-            {/* ... */}
-        )}
-    </StyleToProps>
+   <StyleToProps styleMaps={/* your custome style map, see below API section */}>
+      {({ activeStyles, styleGroupHasClash, toggleInlineStyle }) => (
+         {/* ... */}
+	 {/* Whatever you need to render in here */}
+	 {/* ... */}
+      )}
+   </StyleToProps>
 </div>
 ```
 
@@ -51,12 +51,12 @@ _normal_ styles are declared exactly the same as in DraftJS customStyleMap:
 
 ```js
 const customStyles = {
-  BOLD: {
-  	fontWeight: 'bold'
-   },
-  HIGHLIGHTED: {
-  	textDecoration: 'line-through'
-  }
+   BOLD: {
+      fontWeight: 'bold'
+    },
+   HIGHLIGHTED: {
+      textDecoration: 'line-through'
+   }
 };
 
 // ...
@@ -69,26 +69,26 @@ _mutually exclusive style group_ styles are declared as an array of a single obj
 
 ```js
 const customStyles = {
-  BOLD: {
-  	fontWeight: 'bold'
+   BOLD: {
+      fontWeight: 'bold'
    },
-  HIGHLIGHTED: {
-  	textDecoration: 'line-through'
-  },
+   HIGHLIGHTED: {
+      textDecoration: 'line-through'
+   },
   
-  // Below we have two mutually exclusive style groups:
-  fonts: [{
-  	FONTSIZE_12: { fontSize: '12px' },
-	FONTSIZE_18: { fontSize: '18px' },
-	FONTSIZE_22: { fontSize: '22px' },
-  	FONTSIZE_30: { fontSize: '30px' }
-  }],
-  colors: [{
-  	BLACK: { color: '#000000' },
-    BLUE: { color: '#0000FF' },
-    RED: { color: '#FF0000' },
-    GREEN: { color: '#00FF00' },
-  }]
+   // Below we have two mutually exclusive style groups:
+   fonts: [{
+      FONTSIZE_12: { fontSize: '12px' },
+      FONTSIZE_18: { fontSize: '18px' },
+      FONTSIZE_22: { fontSize: '22px' },
+      FONTSIZE_30: { fontSize: '30px' }
+   }],
+   colors: [{
+      BLACK: { color: '#000000' },
+      BLUE: { color: '#0000FF' },
+      RED: { color: '#FF0000' },
+      GREEN: { color: '#00FF00' },
+   }]
 };
 
 // ...
@@ -103,9 +103,9 @@ A function that should return your generated JSX:
 
 ```HTML
 <StyleToProps styleMaps={/* your custome style map, see below API section */}>
-	{({ activeStyles, styleGroupHasClash, toggleInlineStyle }) => (
-    	{/* your generated JSX */}
-    )}
+   {({ activeStyles, styleGroupHasClash, toggleInlineStyle }) => (
+      {/* your generated JSX */}
+   )}
 </StyleToProps>
 ```
 
@@ -118,22 +118,22 @@ The main function to toggle custom styles in the current selection (or cursor po
 ```js
 ...
 const myStyles = {
-    colors: [{
-      	BLACK: { color: '#000000' },
-        BLUE: { color: '#0000FF' },
-        RED: { color: '#FF0000' },
-        GREEN: { color: '#00FF00' }
-    }]
+   colors: [{
+      BLACK: { color: '#000000' },
+      BLUE: { color: '#0000FF' },
+      RED: { color: '#FF0000' },
+      GREEN: { color: '#00FF00' }
+   }]
 };
 ...
 <StyleToProps styleMaps={myStyles}>
-	{({ toggleInlineStyle }) => (
-	    <React.Fragment>
-	        <button onClick={() => toggleInlineStyle('BLACK')}>Toggle Black</button>
-	        <button onClick={() => toggleInlineStyle('BLUE')}>Toggle Blue</button>
-	        <button onClick={() => toggleInlineStyle('RED')}>Toggle Red</button>
-	        <button onClick={() => toggleInlineStyle('GREEN')}>Toggle Green</button>
-	    </React.Fragment>
+   {({ toggleInlineStyle }) => (
+      <React.Fragment>
+         <button onClick={() => toggleInlineStyle('BLACK')}>Toggle Black</button>
+	 <button onClick={() => toggleInlineStyle('BLUE')}>Toggle Blue</button>
+	 <button onClick={() => toggleInlineStyle('RED')}>Toggle Red</button>
+	 <button onClick={() => toggleInlineStyle('GREEN')}>Toggle Green</button>
+       </React.Fragment>
     )}
 </StyleToProps>
 ```
@@ -144,18 +144,18 @@ An key-value pair of the active styles for the current editor selection in the f
 
 ```js
 <StyleToProps styleMaps={myStyles}>
-	{({ activeStyles }) => {
-    	if (activeStyles['SOME_STYLE') {
-	        return <div>Some style is selected</div>
-        } else {
-        	return (
-            	<div>
-                	All active styles (from the ones this component knows about from styleMaps prop): <br/>
-                    {JSON.stringify(activeStyles)}
-                </div>
-            );
-        }
-    )}
+   {({ activeStyles }) => {
+      if (activeStyles['SOME_STYLE') {
+         return <div>Some style is selected</div>
+      } else {
+         return (
+            <div>
+               All active styles (from the ones this component knows about from styleMaps prop): <br/>
+               {JSON.stringify(activeStyles)}
+            </div>
+         );
+      }
+   )}
 </StyleToProps>
 ```
 
@@ -166,26 +166,26 @@ For a given style group (as defined in styleMaps prop), this function returns if
 ```HTML
 ...
 const myStyles = {
-    myFontStyles: [{
-        FONTSIZE12: { fontSize: '12px' },
-        FONTSIZE30: { fontSize: '30px' },
-    }]
+   myFontStyles: [{
+      FONTSIZE12: { fontSize: '12px' },
+      FONTSIZE30: { fontSize: '30px' },
+   }]
 };
 ...
 
 <StyleToProps styleMaps={myStyles}>
-	{({ styleGroupHasClash, activeStyles }) => {
-	    const anyCustomStyleInSelection = Object.keys(activeStyles).length > 0;
-	    const differentFontStylesInSelection = styleGroupHasClash('myFontStyles');
-	    
-    	if (differentFontStylesInSelection) {
-	        return <div>A block of text that has both text in 12px and 30px in it is selected</div>
-        } else if (anyCustomStyleInSelection) {
-        	return <div>A block of text of either 12px OR 30px in it is selected</div>
-        } else {
-            return <div>Either no text is selected, or the selected text has no custom styling</div>
-        }
-    )}
+   {({ styleGroupHasClash, activeStyles }) => {
+      const anyCustomStyleInSelection = Object.keys(activeStyles).length > 0;
+      const differentFontStylesInSelection = styleGroupHasClash('myFontStyles');
+	
+      if (differentFontStylesInSelection) {
+         return <div>A block of text that has both text in 12px and 30px in it is selected</div>
+      } else if (anyCustomStyleInSelection) {
+         return <div>A block of text of either 12px OR 30px in it is selected</div>
+      } else {
+         return <div>Either no text is selected, or the selected text has no custom styling</div>
+      }
+   )}
 </StyleToProps>
 ```
 
